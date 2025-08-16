@@ -91,8 +91,8 @@ def load_ml_model():
 # --- 4. Streamlit App Layout ---
 def main():
     st.set_page_config(layout="wide")
-    st.title("Data Wizard 🧙‍♂️")
-    st.markdown("A browser-based tool for Data Cleaning, Profiling & ML Prediction.")
+    st.title("Samriddh Jaiswal's Data Wizard 🧙‍♂️")
+    st.markdown("Samriddh Jaiswal's browser-based tool for Data Cleaning, Profiling & ML Prediction.")
 
     # Sidebar for File Upload
     st.sidebar.header("1. Upload Data")
@@ -156,3 +156,4 @@ def main():
 # Run the app
 if __name__ == "__main__":
     main()
+
