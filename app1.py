@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import polars as pl
 
 st.title('Simple Data App')
 st.write("This app is a working test version.")
