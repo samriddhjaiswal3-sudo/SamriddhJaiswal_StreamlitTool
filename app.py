@@ -91,8 +91,8 @@ def load_ml_model():
 # --- 4. Streamlit App Layout ---
 def main():
     st.set_page_config(layout="wide")
-    st.title("Samriddh Jaiswal's Data Wizard 🧙‍♂️")
-    st.markdown("Samriddh Jaiswal's browser-based tool for Data Cleaning, Profiling & ML Prediction.")
+    st.title("Data Wizard 🧙‍♂️")
+    st.markdown("A browser-based tool for Data Cleaning, Profiling & ML Prediction.")
 
     # Sidebar for File Upload
     st.sidebar.header("1. Upload Data")
@@ -146,14 +146,4 @@ def main():
             
             if st.button("Predict"):
                 with st.spinner("Predicting..."):
-                    user_data = pd.DataFrame([[feature1_val, feature2_val]], columns=['feature1', 'feature2'])
-                    user_data_scaled = scaler.transform(user_data)
-                    prediction = model.predict(user_data_scaled)[0]
-                    
-                    st.success("Prediction complete!")
-                    st.markdown(f"The model's prediction is: **{'Class 1' if prediction == 1 else 'Class 0'}**")
-
-# Run the app
-if __name__ == "__main__":
-    main()
-
+                    user_data =
