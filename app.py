@@ -144,12 +144,15 @@ def main():
             with col2:
                 feature2_val = st.number_input("Enter a value for Feature 2", value=0.0)
             
-       if st.button("Predict"):
-    with st.spinner("Predicting..."):
-        user_data = pd.DataFrame(...)
-        user_data_scaled = scaler.transform(user_data)
-        prediction = model.predict(user_data_scaled)[0]
+            if st.button("Predict"):
+                with st.spinner("Predicting..."):
+                    user_data = pd.DataFrame([[feature1_val, feature2_val]], columns=['feature1', 'feature2'])
+                    user_data_scaled = scaler.transform(user_data)
+                    prediction = model.predict(user_data_scaled)[0]
+                    
+                    st.success("Prediction complete!")
+                    st.markdown(f"The model's prediction is: **{'Class 1' if prediction == 1 else 'Class 0'}**")
 
-        st.success("Prediction complete!")
-        st.markdown(f"The model's prediction is: **{'Class 1' if prediction == 1 else 'Class 0'}**")
-
+# Run the app
+if __name__ == "__main__":
+    main()
