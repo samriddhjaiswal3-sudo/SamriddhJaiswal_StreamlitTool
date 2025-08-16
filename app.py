@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
 import polars as pl
-from ydata_profiling import ProfileReport
-import tempfile
 import pickle
 import os
 from sklearn.linear_model import LogisticRegression
@@ -129,29 +127,11 @@ def main():
             mime="text/csv",
         )
 
-        st.sidebar.header("3. Data Profiling")
-        if st.sidebar.button("Generate Profile Report"):
-            with st.spinner("Generating comprehensive report..."):
-                profile = ProfileReport(st.session_state.df, explorative=True, dark_mode=True)
-                # Save to a temporary file
-                with tempfile.NamedTemporaryFile(suffix=".html", delete=False) as tmp_file:
-                    profile.to_file(tmp_file.name)
-                    st.session_state.profile_path = tmp_file.name
-            st.success("Report generated!")
-
         st.header("Data Preview")
         st.dataframe(st.session_state.df)
 
-        if "profile_path" in st.session_state:
-            # Display the report in an iframe for a seamless experience
-            st.components.v1.html(
-                open(st.session_state.profile_path, 'r').read(),
-                height=600,
-                scrolling=True
-            )
-            
         # --- ML Prediction Module ---
-        st.sidebar.header("4. ML Prediction")
+        st.sidebar.header("3. ML Prediction")
         with st.expander("Try a Simple Prediction"):
             model, scaler = load_ml_model()
 
